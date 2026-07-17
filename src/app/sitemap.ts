@@ -3,7 +3,7 @@ import { projectsData } from "@/data/projectsData";
 import { siteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages = ["", "/projects", "/experience", "/contact", "/resume", "/pull-requests"].map((path) => ({
+  const pages = ["", "/projects", "/experience", "/resume"].map((path) => ({
     url: `${siteUrl}${path}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,

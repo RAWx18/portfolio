@@ -225,7 +225,7 @@ export function GithubGraph() {
         Calendar heatmap showing daily GitHub contribution counts for RAWx18 over the last year. Scroll horizontally to inspect all weeks.
       </p>
 
-      {/* Graph content — sits directly on the page background */}
+      {/* Graph content: sits directly on the page background */}
       <div className="relative py-4">
         <div className="w-full">
           <div>

@@ -12,7 +12,7 @@ const resumePath = "/resume.pdf";
 
 export const metadata: Metadata = {
   title: "Resume",
-  description: "Resume of Ryan Madhuwala (RAWx18) — AI Infrastructure Engineer, open-source maintainer, and founder building Caracal at Garudex Labs.",
+  description: "Resume of Ryan Madhuwala (RAWx18)",
   alternates: { canonical: "/resume" },
 };
 

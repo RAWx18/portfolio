@@ -22,7 +22,7 @@ const description =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Ryan Madhuwala — AI Infrastructure Engineer",
+    default: "Ryan Madhuwala: AI Infrastructure Engineer",
     template: "%s · Ryan Madhuwala",
   },
   description,
@@ -53,14 +53,14 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: "Ryan Madhuwala",
     locale: "en_US",
-    title: "Ryan Madhuwala — AI Infrastructure Engineer",
+    title: "Ryan Madhuwala: AI Infrastructure Engineer",
     description,
     images: [
       {
         url: "/cover_portfolio.png",
         width: 1517,
         height: 507,
-        alt: "Ryan Madhuwala — AI Infrastructure Engineer",
+        alt: "Ryan Madhuwala: AI Infrastructure Engineer",
       },
     ],
   },
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@RAWx18_dev",
     creator: "@RAWx18_dev",
-    title: "Ryan Madhuwala — AI Infrastructure Engineer",
+    title: "Ryan Madhuwala: AI Infrastructure Engineer",
     description,
     images: ["/cover_portfolio.png"],
   },

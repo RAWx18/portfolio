@@ -70,7 +70,7 @@ export const experiences: ExperienceData[] = [
         dates: "Jun 2025 - Nov 2025",
         location: "Remote",
         description: `
-          LFX'25 @ LFDT — building Multi-Agentic AI
+          LFX'25 @ LFDT, building Multi-Agentic AI
           Drove the AI development, multi-agent system, and vector-retrieval and context-memory development in the project
         `,
       },
@@ -96,6 +96,7 @@ export const experiences: ExperienceData[] = [
   },
   {
     company: "GitHub",
+    url: "https://github.com/open-source/github-secure-open-source-fund",
     src: "/experience/github.png",
     imageFit: "contain",
     imageZoom: 1,
@@ -105,7 +106,7 @@ export const experiences: ExperienceData[] = [
         dates: "Apr 2026 - Present",
         location: "Remote",
         description: `
-          One of the most prestigious programs — selects the top 30 open-source projects globally each year and brings together the best maintainers
+          One of the most prestigious programs, selects the top 30 open-source projects globally each year and brings together the best maintainers
           2026 projects include OpenCLAW, FastAPI, LangChain, ONNX, and others
           Backed by GitHub, Stripe, Zerodha, American Express, Datadog, 1Password, Kraken, and others
           Working closely with the GitHub security team and leaders, with invites to the invite-only GitHub Maintainers Summit and GitHub Open Source Friday
@@ -218,7 +219,7 @@ export const experiences: ExperienceData[] = [
         dates: "May 2024 - Jul 2024",
         location: "Ahmedabad, India · On-site",
         description: `
-          Interned as an NLP Engineer — built NLP systems and an AI RAG system using AI frameworks, AI vector databases, and data science
+          Interned as an NLP Engineer, built NLP systems and an AI RAG system using AI frameworks, AI vector databases, and data science
         `,
       },
     ],
