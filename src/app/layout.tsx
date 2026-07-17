@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [{ url: "/favicon.jpeg", type: "image/jpeg", sizes: "422x422" }],
-    apple: [{ url: "/apple-icon.png", type: "image/png", sizes: "180x180" }],
+    apple: [{ url: "/favicon.jpeg", type: "image/jpeg", sizes: "180x180" }],
   },
   openGraph: {
     type: "website",
