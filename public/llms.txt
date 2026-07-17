@@ -10,7 +10,7 @@ Portfolio: https://ryanmadhuwala.tech
 - AI, open source, and developer tools.
 - Third-year BTech dropout from IIIT Gwalior (Computer Science, 2023-2025, CGPA 7.8, JEE 99.1 percentile). Chose the market over the classroom for a two-year head start building a startup.
 - Cohort Member: GitHub Secure Open Source Fund, Microsoft for Startups, Vercel Open Source Program Spring'26.
-- LFX Mentor under LF Decentralized Trust. Google Summer of Code 2025. Ex-DRDO (Defense Ministry of India).
+- LFX Mentor under LF Decentralized Trust. Ex-DRDO (Defense Ministry of India).
 - Speaker/attendee: Open Source Summit Korea/Japan 2025 & India 2026, OpenSearchCon Korea/Europe 2025, GitHub Maintainer Summit 2026.
 - Winner: Smart India Hackathon 2026. Finalist: Walmart Sparkathon 2025. Co-organizer: OpenSearch User Group Ahmedabad.
 
