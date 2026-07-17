@@ -138,7 +138,7 @@ export default function ResumePage() {
             </a>
             <a
               href={resumePath}
-              download="Ryan-Madhuwala-Resume.pdf"
+              download=""
               aria-label="Download resume"
               title="Download resume"
             >
@@ -158,7 +158,7 @@ export default function ResumePage() {
 
         <div className="relative aspect-[8.5/11] w-full overflow-hidden rounded-[6px] border border-black/10 bg-white shadow-sm dark:border-white/10">
           <Image
-            src="/Ryan-Madhuwala-Resume.png"
+            src="/"
             alt="Ryan Madhuwala resume"
             fill
             preload
