@@ -1,0 +1,33 @@
+# Ryan Madhuwala (RAWx18)
+
+> AI Infrastructure Engineer, open-source maintainer, and founder building Caracal at Garudex Labs. Youngest-ever Linux Foundation Lab Leader. Backed by GitHub, Microsoft, Vercel & Founders, Inc. Based in Ahmedabad, India.
+
+Portfolio: https://ryanmadhuwala.tech
+
+## About
+
+- Engineer / Artist. Loves building, breaking, and shipping things.
+- AI, open source, and developer tools.
+- Third-year BTech dropout from IIIT Gwalior (Computer Science, 2023-2025, CGPA 7.8, JEE 99.1 percentile). Chose the market over the classroom for a two-year head start building a startup.
+- Cohort Member: GitHub Secure Open Source Fund, Microsoft for Startups, Vercel Open Source Program Spring'26.
+- LFX Mentor under LF Decentralized Trust. Google Summer of Code 2025. Ex-DRDO (Defense Ministry of India).
+- Speaker/attendee: Open Source Summit Korea/Japan 2025 & India 2026, OpenSearchCon Korea/Europe 2025, GitHub Maintainer Summit 2026.
+- Winner: Smart India Hackathon 2026. Finalist: Walmart Sparkathon 2025. Co-organizer: OpenSearch User Group Ahmedabad.
+
+## Projects
+
+- [Caracal](https://ryanmadhuwala.tech/projects/caracal): Authority, not credentials, for AI agents — policy-approved actions, delegation that can only narrow, instant revocation, tamper-evident audit. Live at https://www.caracal.run. Stack: Go, TypeScript, Python, Docker, OPA, Kubernetes, Terraform, Better Auth, Azure, AWS, Redis, PostgreSQL.
+- [GitMesh](https://ryanmadhuwala.tech/projects/gitmesh): Capacity-aware product intelligence layer for engineering teams (acquired). Repo: https://github.com/LF-Decentralized-Trust-labs/gitmesh. Stack: TypeScript, JavaScript, Vue, Python, Docker, Terraform, GCP, AWS.
+
+## Skills
+
+TypeScript, Go, Python, SQL, Node.js, Express, FastAPI, Django, PostgreSQL, Redis, MongoDB, OpenSearch, Neo4j, LangGraph, LangChain, CrewAI, FAISS, Mem0, Docker, Kubernetes, Linux, Terraform, AWS, OPA, React, Next.js, Tailwind CSS, shadcn/ui.
+
+## Links
+
+- GitHub: https://github.com/RAWx18
+- X (Twitter): https://x.com/RAWx18_dev
+- LinkedIn: https://www.linkedin.com/in/ryanmadhuwala
+- Email: rawx18.dev@gmail.com
+- Resume: https://ryanmadhuwala.tech/resume
+- Experience: https://ryanmadhuwala.tech/experience
