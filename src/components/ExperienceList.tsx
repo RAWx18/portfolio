@@ -226,7 +226,7 @@ export function ExperienceList({ limit }: { limit?: number }) {
                       : undefined
                   }
                 >
-                  <div className="flex min-w-0 flex-1 items-start gap-3 sm:gap-4">
+                  <div className="flex w-full min-w-0 flex-1 items-start gap-3 sm:gap-4">
                     <CompanyLogo
                       src={company.src}
                       alt={company.company}

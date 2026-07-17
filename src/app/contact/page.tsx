@@ -252,7 +252,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="flex-grow h-[160px] relative flex items-center justify-end -mr-56 mt-2">
+          <div className="flex-grow h-[110px] md:h-[160px] relative flex items-center justify-end overflow-hidden mr-0 md:-mr-56 mt-2">
             <DisplacementText
               text="RYAN"
               fontSize={300}

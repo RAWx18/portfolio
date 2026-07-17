@@ -3,7 +3,6 @@ import { GithubGraph } from "@/components/GithubGraph";
 import { CurrentTime } from "@/components/CurrentTime";
 import { ProjectsGrid } from "@/components/ProjectsGrid";
 import { ExperienceList } from "@/components/ExperienceList";
-import { OpenSourceContributions } from "@/components/OpenSourceContributions";
 import { Highlights } from "@/components/Highlights";
 import { FooterBackground } from "@/components/FooterBackground";
 import { RightNavbar } from "@/components/RightNavbar";
@@ -331,11 +330,6 @@ export default function Home() {
 
         {/* Github Graph */}
         <GithubGraph />
-
-        {/* Open Source Contributions */}
-        <div id="opensource" className="scroll-mt-24">
-          <OpenSourceContributions />
-        </div>
 
         {/* Skills */}
         <div id="skills" className="mt-6 flex flex-col relative z-10 scroll-mt-24">

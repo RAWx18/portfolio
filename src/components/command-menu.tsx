@@ -16,7 +16,6 @@ import {
     Briefcase,
     BookOpen
 } from "lucide-react"
-import { SiGithub } from "react-icons/si"
 
 import {
     CommandDialog,
@@ -83,9 +82,6 @@ export function CommandMenu() {
                 } else if (key === 'd') {
                     e.preventDefault()
                     runCommand(() => window.location.hash = "#education")
-                } else if (key === 'o') {
-                    e.preventDefault()
-                    runCommand(() => window.location.hash = "#opensource")
                 } else if (key === 's') {
                     e.preventDefault()
                     runCommand(() => window.location.hash = "#skills")
@@ -165,11 +161,6 @@ export function CommandMenu() {
                             <GraduationCap className="mr-2 h-4 w-4 text-zinc-500" />
                             <span>Education</span>
                             <CommandShortcut className="font-mono text-[10px] bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-700">shift + D</CommandShortcut>
-                        </CommandItem>
-                        <CommandItem onSelect={() => runCommand(() => window.location.hash = "#opensource")} className="rounded-lg py-3 cursor-pointer">
-                            <SiGithub className="mr-2 h-4 w-4 text-zinc-500" />
-                            <span>Open Source</span>
-                            <CommandShortcut className="font-mono text-[10px] bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-700">shift + O</CommandShortcut>
                         </CommandItem>
                         <CommandItem onSelect={() => runCommand(() => window.location.hash = "#skills")} className="rounded-lg py-3 cursor-pointer">
                             <BookOpen className="mr-2 h-4 w-4 text-zinc-500" />

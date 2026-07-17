@@ -28,7 +28,7 @@ export function TopNavbar() {
       { rootMargin: "-20% 0px -60% 0px", threshold: 0.1 }
     );
 
-    const sections = ["experience", "projects", "education", "opensource", "skills"];
+    const sections = ["experience", "projects", "education", "skills"];
     sections.forEach((id) => {
       const element = document.getElementById(id);
       if (element) observer.observe(element);
