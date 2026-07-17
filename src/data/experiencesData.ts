@@ -9,6 +9,7 @@ export type ExperiencePosition = {
 
 export type ExperienceData = {
   company: string;
+  url?: string;
   src: string;
   imageFit?: "contain" | "cover";
   imageZoom?: number;
@@ -18,6 +19,7 @@ export type ExperienceData = {
 export const experiences: ExperienceData[] = [
   {
     company: "Caracal",
+    url: "https://www.caracal.run",
     src: "/experience/caracal.png",
     imageFit: "cover",
     imageZoom: 1,
@@ -37,6 +39,7 @@ export const experiences: ExperienceData[] = [
   },
   {
     company: "LF Decentralized Trust",
+    url: "https://lfdecentralizedtrust.org",
     src: "/experience/lfdt.png",
     imageFit: "cover",
     imageZoom: 1,
@@ -75,6 +78,7 @@ export const experiences: ExperienceData[] = [
   },
   {
     company: "Vercel",
+    url: "https://vercel.com/blog/vercel-open-source-program-spring-2026-cohort#caracal",
     src: "/experience/vercel.png",
     imageFit: "contain",
     imageZoom: 1,
@@ -111,6 +115,7 @@ export const experiences: ExperienceData[] = [
   },
   {
     company: "Microsoft for Startups",
+    url: "https://www.microsoft.com/startups",
     src: "/experience/microsoft.png",
     imageFit: "contain",
     imageZoom: 1,
@@ -127,7 +132,27 @@ export const experiences: ExperienceData[] = [
     ],
   },
   {
+    company: "Founders, Inc.",
+    url: "https://f.inc/canopy",
+    src: "/experience/foundersinc.jpeg",
+    imageFit: "cover",
+    imageZoom: 1,
+    positions: [
+      {
+        role: "Cohort Member (Canopy Online)",
+        dates: "Apr 2026 - Jun 2026",
+        location: "Remote",
+        description: `
+          Canopy is a five-week program designed to help entrepreneurs build startups, supporting creators and builders working in software, hardware, and media
+          Participate in weekly lectures from successful billion-dollar startup founders, focusing on fundraising, marketing, and product development
+          Low acceptance rate, below 4% globally
+        `,
+      },
+    ],
+  },
+  {
     company: "GitMesh",
+    url: "https://github.com/LF-Decentralized-Trust-labs/gitmesh",
     src: "/experience/gitmesh.jpeg",
     imageFit: "cover",
     imageZoom: 1,
@@ -146,25 +171,8 @@ export const experiences: ExperienceData[] = [
     ],
   },
   {
-    company: "Founders, Inc.",
-    src: "/experience/foundersinc.jpeg",
-    imageFit: "cover",
-    imageZoom: 1,
-    positions: [
-      {
-        role: "Cohort Member (Canopy Online)",
-        dates: "Apr 2026 - Jun 2026",
-        location: "Remote",
-        description: `
-          Canopy is a five-week program designed to help entrepreneurs build startups, supporting creators and builders working in software, hardware, and media
-          Participate in weekly lectures from successful billion-dollar startup founders, focusing on fundraising, marketing, and product development
-          Low acceptance rate, below 4% globally
-        `,
-      },
-    ],
-  },
-  {
     company: "DeepLearning.AI",
+    url: "https://www.deeplearning.ai",
     src: "/experience/dlai.png",
     imageFit: "contain",
     imageZoom: 1,
@@ -181,6 +189,7 @@ export const experiences: ExperienceData[] = [
   },
   {
     company: "Defence Research & Development Organisation (DRDO)",
+    url: "https://drdo.gov.in/drdo/en",
     src: "/experience/drdo.svg",
     imageFit: "contain",
     imageZoom: 1,
@@ -198,6 +207,7 @@ export const experiences: ExperienceData[] = [
   },
   {
     company: "aiPlato, Inc.",
+    url: "https://aiplato.ai",
     src: "/experience/aiplato.jpeg",
     imageFit: "cover",
     imageZoom: 1,
@@ -206,7 +216,7 @@ export const experiences: ExperienceData[] = [
         role: "Summer Intern",
         type: "Internship",
         dates: "May 2024 - Jul 2024",
-        location: "Ahmedabad, Gujarat, India · On-site",
+        location: "Ahmedabad, India · On-site",
         description: `
           Interned as an NLP Engineer — built NLP systems and an AI RAG system using AI frameworks, AI vector databases, and data science
         `,

@@ -8,7 +8,7 @@ import { FooterBackground } from "@/components/FooterBackground";
 import SoftPillButton from "@/components/pixel-perfect/soft-pill-button";
 import { ThemeToggle } from "@/components/theme-toggle";
 
-const resumePath = "/";
+const resumePath = "/resume.pdf";
 
 export const metadata: Metadata = {
   title: "Resume",
@@ -158,10 +158,10 @@ export default function ResumePage() {
 
         <div className="relative aspect-[8.5/11] w-full overflow-hidden rounded-[6px] border border-black/10 bg-white shadow-sm dark:border-white/10">
           <Image
-            src="/"
+            src="/resume.jpg"
             alt="Ryan Madhuwala resume"
             fill
-            preload
+            priority
             sizes="(min-width: 768px) 40vw, 100vw"
             quality={75}
             className="object-contain"

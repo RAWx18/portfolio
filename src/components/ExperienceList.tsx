@@ -19,6 +19,32 @@ function TypeBadge({ label }: { label: string }) {
   );
 }
 
+function CompanyName({
+  name,
+  url,
+  className,
+}: {
+  name: string;
+  url?: string;
+  className: string;
+}) {
+  if (!url) {
+    return <span className={className}>{name}</span>;
+  }
+
+  return (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={(event) => event.stopPropagation()}
+      className={`${className} underline-offset-2 transition-colors hover:text-black hover:underline dark:hover:text-white`}
+    >
+      {name}
+    </a>
+  );
+}
+
 function Chevron({ isOpen }: { isOpen: boolean }) {
   return (
     <svg
@@ -162,9 +188,11 @@ export function ExperienceList({ limit }: { limit?: number }) {
                     imageFit={company.imageFit}
                     imageZoom={company.imageZoom}
                   />
-                  <span className="text-[15px] font-bold leading-tight text-zinc-900 dark:text-zinc-100 sm:text-[17px]">
-                    {company.company}
-                  </span>
+                  <CompanyName
+                    name={company.company}
+                    url={company.url}
+                    className="text-[15px] font-bold leading-tight text-zinc-900 dark:text-zinc-100 sm:text-[17px]"
+                  />
                 </div>
 
                 <div className="ml-5 mt-1.5 border-l border-black/10 dark:border-white/[0.12]">
@@ -235,9 +263,11 @@ export function ExperienceList({ limit }: { limit?: number }) {
                     />
                     <div className="flex min-w-0 flex-col gap-0.5 pr-2 sm:pr-4">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-[14px] font-bold leading-tight text-zinc-900 dark:text-zinc-100 sm:text-[17px]">
-                          {company.company}
-                        </span>
+                        <CompanyName
+                          name={company.company}
+                          url={company.url}
+                          className="text-[14px] font-bold leading-tight text-zinc-900 dark:text-zinc-100 sm:text-[17px]"
+                        />
                         {firstPosition.type && <TypeBadge label={firstPosition.type} />}
                       </div>
                       <span className="truncate text-[14px] text-zinc-600 dark:text-zinc-400 sm:text-[15px]">
