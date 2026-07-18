@@ -428,7 +428,7 @@ export default function Home() {
               <span className="font-medium text-zinc-600 dark:text-zinc-300">Activities & societies:</span> Core Team & Event Lead @ Infotsav Tech Fest · Promotions Team @ Aurora Cultural Fest
             </p>
 
-            <p className="mt-3 text-[13px] leading-relaxed text-zinc-600 dark:text-zinc-300">Third-year BTech dropout. With experience across government, startups, and MNCs, I chose the market over the classroom, gave myself a two-year head start to build a startup.</p>
+            <p className="mt-3 text-[13px] leading-relaxed text-zinc-600 dark:text-zinc-300">Third-year BTech dropout. With experience across government, startups, and MNCs.</p>
           </div>
         </div>
 
