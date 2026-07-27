@@ -55,7 +55,7 @@ const activities = [
   "Open Source Summit Japan 2025",
   "Open Source Summit India 2026",
   "OpenSearchCon Korea 2025",
-  "OpenSearchCon Europe 2025",
+  "OpenSearchCon Europe 2026",
   "GitHub Maintainer Summit 2026",
   "GitHub Open Source Friday",
   "Walmart Sparkathon 2025 — Finalist",
