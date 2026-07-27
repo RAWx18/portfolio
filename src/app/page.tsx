@@ -59,7 +59,7 @@ const activities = [
   "GitHub Maintainer Summit 2026",
   "GitHub Open Source Friday",
   "Walmart Sparkathon 2025 — Finalist",
-  "Smart India Hackathon 2026 — Winner",
+  "Smart India Hackathon 2024 — Winner",
   "Innovation Design & Entrepreneurship 2025 — Best Pitch",
   "Co-organizer, OpenSearch User Group Ahmedabad",
 ];
