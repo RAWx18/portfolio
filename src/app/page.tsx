@@ -2,7 +2,8 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { GithubGraph } from "@/components/GithubGraph";
 import { CurrentTime } from "@/components/CurrentTime";
 import { ProjectsGrid } from "@/components/ProjectsGrid";
-import { ExperienceList } from "@/components/ExperienceList";
+import { ExperienceCards } from "@/components/ExperienceCards";
+import { ActivityChip, type Activity } from "@/components/ActivityChip";
 import { Highlights } from "@/components/Highlights";
 import { FooterBackground } from "@/components/FooterBackground";
 import { RightNavbar } from "@/components/RightNavbar";
@@ -50,18 +51,28 @@ const skills: { name: string; icon?: string }[] = [
   { name: "Full Stack" },
 ];
 
-const activities = [
-  "Open Source Summit Korea 2025",
-  "Open Source Summit Japan 2025",
-  "Open Source Summit India 2026",
-  "OpenSearchCon Korea 2025",
-  "OpenSearchCon Europe 2026",
-  "GitHub Maintainer Summit 2026",
-  "GitHub Open Source Friday",
-  "Walmart Sparkathon 2025 — Finalist",
-  "Smart India Hackathon 2024 — Winner",
-  "Innovation Design & Entrepreneurship 2025 — Best Pitch",
-  "Co-organizer, OpenSearch User Group Ahmedabad",
+const activities: Activity[] = [
+  { name: "Open Source Summit Korea 2025" },
+  { name: "Open Source Summit Japan 2025" },
+  { name: "Open Source Summit India 2026" },
+  { name: "OpenSearchCon Korea 2025" },
+  { name: "OpenSearchCon Europe 2026" },
+  { name: "GitHub Maintainer Summit 2026" },
+  { name: "GitHub Open Source Friday" },
+  {
+    name: "Walmart Sparkathon 2025 — Finalist",
+    image: "/experience/story/walmart.jpeg",
+    caption: "Qualified for the jury round of Walmart Global Tech's open innovation challenge.",
+    shape: "landscape",
+  },
+  {
+    name: "Smart India Hackathon 2024 — Winner",
+    image: "/experience/story/sih.jpeg",
+    caption: "Team B-GANs on stage at the SIH Software grand finale, Mumbai.",
+    shape: "portrait",
+  },
+  { name: "Innovation Design & Entrepreneurship 2025 — Best Pitch" },
+  { name: "Co-organizer, OpenSearch User Group Ahmedabad" },
 ];
 
 export default function Home() {
@@ -281,7 +292,7 @@ export default function Home() {
           </div>
 
           <div className="block mt-0">
-            <ExperienceList limit={5} />
+            <ExperienceCards limit={5} />
           </div>
         </div>
 
@@ -453,9 +464,7 @@ export default function Home() {
           <div className="relative pt-6 pb-2">
             <div className="flex flex-wrap gap-2 w-full">
               {activities.map((activity, index) => (
-                <div key={index} className="grow flex items-center justify-center px-3 py-1.5 bg-zinc-50 hover:bg-zinc-100 dark:bg-[#0a0a0a] dark:hover:bg-[#121214] border border-black/30 dark:border-white/[0.15] rounded-[6px] transition-colors duration-200 cursor-default">
-                  <span className="text-[13px] font-medium text-zinc-600 dark:text-zinc-400 text-center">{activity}</span>
-                </div>
+                <ActivityChip key={index} activity={activity} />
               ))}
             </div>
           </div>
