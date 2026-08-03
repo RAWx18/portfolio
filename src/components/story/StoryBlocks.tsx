@@ -1,10 +1,3 @@
-/**
- * Copyright (C) 2026 Garudex Labs.  All Rights Reserved.
- * Caracal, a product of Garudex Labs
- *
- * Blocks of the centred narrative column on an experience story page.
- */
-
 import Link from "next/link";
 import { ArrowUpRight, Quote } from "lucide-react";
 import type { StoryBlock } from "@/data/experienceStories";
@@ -40,10 +33,10 @@ export function StoryBlocks({ blocks }: { blocks: StoryBlock[] }) {
   return (
     <>
       {blocks.map((block, index) => (
-        <div key={index}>
+        <section key={index}>
           <Divider />
           <Block block={block} />
-        </div>
+        </section>
       ))}
     </>
   );
@@ -141,15 +134,15 @@ function Block({ block }: { block: StoryBlock }) {
     case "milestones":
       return (
         <Reveal>
-          <div className="divide-y divide-black/5 dark:divide-white/5">
+          <ol className="divide-y divide-black/5 dark:divide-white/5">
             {block.items.map((item) => (
-              <div
+              <li
                 key={item.title}
                 className="grid grid-cols-[86px_1fr] items-baseline gap-3 py-2.5 first:pt-0 last:pb-0"
               >
-                <span className="text-[11px] font-medium uppercase tracking-wide text-zinc-400 dark:text-zinc-500">
+                <time className="text-[11px] font-medium uppercase tracking-wide text-zinc-400 dark:text-zinc-500">
                   {item.date}
-                </span>
+                </time>
                 <span className="min-w-0">
                   <span className="text-[13px] font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
                     {item.title}
@@ -160,18 +153,18 @@ function Block({ block }: { block: StoryBlock }) {
                     </span>
                   )}
                 </span>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </Reveal>
       );
 
     case "evidence":
       return (
         <Reveal>
-          <div className="mb-2.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-zinc-400 dark:text-zinc-500">
+          <h3 className="mb-2.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-zinc-400 dark:text-zinc-500">
             Proof
-          </div>
+          </h3>
           <div className="grid gap-2 sm:grid-cols-2">
             {block.links.map((link) => (
               <Link

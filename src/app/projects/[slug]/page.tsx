@@ -4,6 +4,11 @@ import { CurrentTime } from "@/components/CurrentTime";
 import { RightNavbar } from "@/components/RightNavbar";
 import { FooterBackground } from "@/components/FooterBackground";
 import { projectsData, iconMap, techNames, TechItem, TechKey } from "@/data/projectsData";
+import { roleStories } from "@/data/experienceStories";
+import { findRole } from "@/data/experiencesData";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbs, personId, websiteId } from "@/lib/seo";
+import { siteUrl } from "@/lib/site";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -49,8 +54,49 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     notFound();
   }
 
+  const url = `${siteUrl}/projects/${slug}`;
+  const languages = project.tech
+    .map((item: TechItem) => (typeof item === "string" ? techNames[item as TechKey] : item.label))
+    .filter(Boolean);
+  const relatedRoles = roleStories
+    .filter((story) => (story.related ?? []).includes(slug))
+    .map((story) => findRole(story.org, story.role))
+    .filter((item) => item !== undefined);
+
+  const graph = [
+    breadcrumbs([
+      { name: "Ryan Madhuwala", path: "/" },
+      { name: "Projects", path: "/projects" },
+      { name: project.title, path: `/projects/${slug}` },
+    ]),
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": `${url}#project`,
+      name: project.title,
+      description: project.description,
+      url,
+      image: `${siteUrl}${project.src}`,
+      author: { "@id": personId },
+      programmingLanguage: languages,
+      ...(project.github ? { codeRepository: project.github } : {}),
+      ...(project.live ? { sameAs: [project.live] } : {}),
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${url}#webpage`,
+      url,
+      name: `${project.title} · Ryan Madhuwala`,
+      description: project.description,
+      isPartOf: { "@id": websiteId },
+      about: { "@id": `${url}#project` },
+      inLanguage: "en-US",
+      primaryImageOfPage: `${siteUrl}${project.src}`,
+    },
+  ];
+
   return (
     <div className="min-h-screen w-full bg-white dark:bg-black relative overflow-x-hidden transition-colors duration-300">
+      <JsonLd graph={graph} />
       {/* Right Side Blueprint Navigation */}
       <RightNavbar />
 
@@ -186,9 +232,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
         {/* Title and Status */}
         <div className="flex items-center justify-between w-full mb-4">
-          <h1 className="text-[24px] sm:text-[28px] font-bold text-zinc-900 dark:text-zinc-50 tracking-tight leading-none">
+          <h2 className="text-[24px] sm:text-[28px] font-bold text-zinc-900 dark:text-zinc-50 tracking-tight leading-none">
             {project.title}
-          </h1>
+          </h2>
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -230,6 +276,33 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             })}
           </div>
         </div>
+
+        {relatedRoles.length > 0 && (
+          <div className="mt-10">
+            <h2 className="text-[16px] font-bold text-zinc-900 dark:text-zinc-50 tracking-tight mb-4">
+              Where it was built
+            </h2>
+            <div className="grid gap-2 sm:grid-cols-2">
+              {relatedRoles.map((item) => (
+                <Link
+                  key={`${item.experience.slug}-${item.position.slug}`}
+                  href={`/experience/${item.experience.slug}/${item.position.slug}`}
+                  className="group flex items-center justify-between gap-3 rounded-lg border border-black/5 bg-zinc-50/80 px-3 py-2.5 shadow-sm transition-all duration-300 hover:border-black/10 hover:shadow-md dark:border-white/5 dark:bg-[#09090b]/80 dark:hover:border-white/10"
+                >
+                  <span className="min-w-0">
+                    <span className="block truncate text-[13px] font-medium text-zinc-800 dark:text-zinc-200">
+                      {item.position.role}
+                    </span>
+                    <span className="mt-0.5 block truncate text-[11px] text-zinc-500 dark:text-zinc-400">
+                      {item.experience.short ?? item.experience.company} · {item.position.dates}
+                    </span>
+                  </span>
+                  <ExternalLink className="h-3.5 w-3.5 shrink-0 rotate-45 text-zinc-400 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:text-zinc-900 dark:group-hover:text-zinc-100" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

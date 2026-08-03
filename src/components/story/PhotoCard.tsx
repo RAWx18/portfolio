@@ -1,10 +1,3 @@
-/**
- * Copyright (C) 2026 Garudex Labs.  All Rights Reserved.
- * Caracal, a product of Garudex Labs
- *
- * A pinned photograph from an experience, with a caption that reveals on hover.
- */
-
 "use client";
 
 import Image from "next/image";

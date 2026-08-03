@@ -1,10 +1,3 @@
-/**
- * Copyright (C) 2026 Garudex Labs.  All Rights Reserved.
- * Caracal, a product of Garudex Labs
- *
- * Homepage experience list: organisations grouped, every role linking to its own story page.
- */
-
 "use client";
 
 import { useState } from "react";

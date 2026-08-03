@@ -1,10 +1,3 @@
-/**
- * Copyright (C) 2026 Garudex Labs.  All Rights Reserved.
- * Caracal, a product of Garudex Labs
- *
- * Activity chip that reveals a photograph of the moment on hover.
- */
-
 "use client";
 
 import { useState } from "react";

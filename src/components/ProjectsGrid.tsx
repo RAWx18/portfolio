@@ -86,8 +86,9 @@ export const ProjectCard = ({
           transition={{ duration: 0.3, ease: "easeOut" }}
         />
 
-        <motion.h1
+        <motion.span
           className="absolute top-4 left-4 text-[10px] font-bold text-zinc-500 dark:text-zinc-400 z-30 uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]"
+          aria-hidden="true"
           variants={{
             rest: { left: "1rem", top: "1rem", x: "0%", color: "#71717a", opacity: 0 },
             hover: { left: "50%", top: "25%", x: "-50%", color: "#ffffff", opacity: 1 },
@@ -95,7 +96,7 @@ export const ProjectCard = ({
           transition={{ type: "spring", stiffness: 200, damping: 25 }}
         >
           Play Video
-        </motion.h1>
+        </motion.span>
 
         {project.video && (
           <motion.div

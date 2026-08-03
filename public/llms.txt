@@ -1,27 +1,61 @@
 # Ryan Madhuwala (RAWx18)
 
-> AI Infrastructure Engineer, open-source maintainer, and founder building Caracal at Garudex Labs. Youngest-ever Linux Foundation Lab Leader. Backed by GitHub, Microsoft, Vercel & Founders, Inc. Based in Ahmedabad, India.
+> AI Infrastructure Engineer, open-source maintainer, and founder of Caracal at Garudex Labs. One of the youngest Lab Leaders in Linux Foundation history. Backed by GitHub, Microsoft, Vercel and Founders, Inc. Based in Ahmedabad, India.
 
 Portfolio: https://ryanmadhuwala.tech
 
 ## About
 
 - Engineer / Artist. Loves building, breaking, and shipping things.
-- AI, open source, and developer tools.
+- Focus: AI infrastructure, AI agent security, open source, developer tools.
 - Third-year BTech dropout from IIIT Gwalior (Computer Science, 2023-2025, CGPA 7.8, JEE 99.1 percentile). Chose the market over the classroom for a two-year head start building a startup.
-- Cohort Member: GitHub Secure Open Source Fund, Microsoft for Startups, Vercel Open Source Program Spring'26.
-- LFX Mentor under LF Decentralized Trust. Ex-DRDO (Defense Ministry of India).
-- Speaker/attendee: Open Source Summit Korea/Japan 2025 & India 2026, OpenSearchCon Korea/Europe 2025, GitHub Maintainer Summit 2026.
-- Winner: Smart India Hackathon 2026. Finalist: Walmart Sparkathon 2025. Co-organizer: OpenSearch User Group Ahmedabad.
+- Cohort member: GitHub Secure Open Source Fund 2026, Microsoft for Startups, Vercel Open Source Program Spring'26, Founders Inc. Canopy Online.
+- Lab Leader and LFX Mentor at LF Decentralized Trust (formerly Hyperledger Foundation). Ex-DRDO (Defence Ministry of India).
+- Speaker/attendee: Open Source Summit Korea, Japan, India and North America; OpenSearchCon Europe, China and Korea; GitHub Maintainer Summit 2026; GitHub Open Source Friday.
+- Winner: Smart India Hackathon. Finalist: Walmart Sparkathon 2025. Co-organizer: OpenSearch User Group Ahmedabad.
 
 ## Projects
 
-- [Caracal](https://ryanmadhuwala.tech/projects/caracal): Authority, not credentials, for AI agents, policy-approved actions, delegation that can only narrow, instant revocation, tamper-evident audit. Live at https://www.caracal.run. Stack: Go, TypeScript, Python, Docker, OPA, Kubernetes, Terraform, Better Auth, Azure, AWS, Redis, PostgreSQL.
-- [GitMesh](https://ryanmadhuwala.tech/projects/gitmesh): Capacity-aware product intelligence layer for engineering teams (acquired). Repo: https://github.com/LF-Decentralized-Trust-labs/gitmesh. Stack: TypeScript, JavaScript, Vue, Python, Docker, Terraform, GCP, AWS.
+- [Caracal](https://ryanmadhuwala.tech/projects/caracal): Authority, not credentials, for AI agents. Agents carry short-lived signed mandates that can only narrow as work is delegated; a gateway injects the real credential at call time. Default-deny policy decides every action before it runs, revocation propagates in one call, and an append-only tamper-evident trail exports for SOC 2, EU AI Act, NIST AI RMF and OWASP Agentic reviews. Standards-native: OAuth 2.0 token exchange (RFC 8693), OPA, MCP. Site: https://www.caracal.run. Repo: https://github.com/Garudex-Labs/caracal. Stack: Go, TypeScript, Python, Docker, OPA, Kubernetes, Terraform, Azure, AWS, Redis, PostgreSQL.
+- [GitMesh](https://ryanmadhuwala.tech/projects/gitmesh): Capacity-aware product intelligence layer for engineering teams. Normalises developer signals from nine platforms into one model, then deduplicates, classifies and ranks them by real community demand. 14 deployable services, 19 shared libraries, 312 API endpoints, 92 PostgreSQL tables, ~300k lines of code. Became an LF Decentralized Trust lab. Repo: https://github.com/LF-Decentralized-Trust-labs/gitmesh. Stack: TypeScript, JavaScript, Vue, Python, Docker, Terraform, GCP, AWS, OpenSearch, Redis, Temporal.
+
+## Experience
+
+Each role has its own page with photographs, technical detail and verifiable references.
+
+### Caracal (Garudex Labs)
+
+- [Founder](https://ryanmadhuwala.tech/experience/caracal/founder) — Feb 2026 to present. Founded and leads Caracal, the authority control plane for AI agents.
+
+### LF Decentralized Trust (formerly Hyperledger Foundation)
+
+- [Lab Leader](https://ryanmadhuwala.tech/experience/lf-decentralized-trust/lab-leader) — Sep 2025 to present. Technical direction and community leadership; a 14-service intelligence platform, Caracal, and production operations for regulated industries.
+- [LFX Mentor](https://ryanmadhuwala.tech/experience/lf-decentralized-trust/lfx-mentor) — Jun 2026 to present. Mentoring two contributors over six months on Caracal's policy gateway, delegation graph engine and immutable audit infrastructure.
+- [LFX Mentee](https://ryanmadhuwala.tech/experience/lf-decentralized-trust/lfx-mentee) — Jun to Nov 2025. Built the AIFAQ multi-agent RAG platform for the Hyperledger ecosystem with ChromaDB, LangGraph, FastAPI, Hugging Face models on AWS and Snowflake.
+
+### Programmes and cohorts
+
+- [GitHub Secure Open Source Fund](https://ryanmadhuwala.tech/experience/github/secure-open-source-fund) — Apr 2026 to present. 2026 cohort: 72 maintainers, 50 projects, 22 countries, alongside FastAPI, LangChain, ONNX and OpenCLAW. Reached OpenSSF Scorecard above 8, OpenSSF Best Practices gold badge and ~80% test and fuzz coverage.
+- [Vercel Open Source Program](https://ryanmadhuwala.tech/experience/vercel/oss-program) — Jun 2026 to present. One of 30 projects in the Spring 2026 cohort; adopted the Vercel AI SDK for Caracal's operator capabilities.
+- [Microsoft for Startups](https://ryanmadhuwala.tech/experience/microsoft-for-startups/cohort-member) — May 2026 to present. Over $100k in Azure and AI credits; Caracal deployed end to end on Azure with Azure AI Foundry models.
+- [Founders, Inc. — Canopy Online](https://ryanmadhuwala.tech/experience/founders-inc/canopy) — Apr to Jun 2026. Five-week accelerator, acceptance below 4% globally.
+
+### Earlier work
+
+- [GitMesh, Project Lead & Creator](https://ryanmadhuwala.tech/experience/gitmesh/creator) — Jul 2025 to Mar 2026. Grew from a side project to an LF Decentralized Trust lab approved by five TAC members; 100+ GitHub stars; used across LFDT, Jaeger, Cartography and Krkn (CNCF), the Linux kernel community, Intel Open Source and AIFAQ.
+- [DeepLearning.AI, GANs Mentor](https://ryanmadhuwala.tech/experience/deeplearning-ai/gans-mentor) — Jun to Sep 2025. Mentored learners worldwide through the GANs Specialization: PyTorch debugging, DCGAN, cGAN, StyleGAN, Pix2Pix, CycleGAN, FID evaluation and bias mitigation.
+- [DRDO, AI Researcher & Engineer Intern](https://ryanmadhuwala.tech/experience/drdo/ai-researcher) — May to Jul 2025. At Scientific Analysis Group, Ministry of Defence: proposed an Enhanced Adaptive Quantum Genetic Algorithm for multi-chain mining allocation, validated to a 0.00% gap against the derived closed-form optimum.
+- [aiPlato, NLP Engineering Intern](https://ryanmadhuwala.tech/experience/aiplato/nlp-engineer) — May to Jul 2024. Worked on the NLP and RAG pipeline behind an AI teaching assistant used by educators at Georgia Tech, Rice, UT and NYU.
+
+## Talks and appearances
+
+- GitHub Open Source Friday, with Kevin Crosby, Senior Director at GitHub: https://www.youtube.com/live/tZ4FdO-zjeE
+- LFDT meetup, GitMesh: https://www.youtube.com/live/_8tHLL5AfAw
+- LFDT meetup, AIFAQ multi-agent RAG: https://www.youtube.com/live/bNO8uvQmw04
 
 ## Skills
 
-TypeScript, Go, Python, SQL, Node.js, Express, FastAPI, Django, PostgreSQL, Redis, MongoDB, OpenSearch, Neo4j, LangGraph, LangChain, CrewAI, FAISS, Mem0, Docker, Kubernetes, Linux, Terraform, AWS, OPA, React, Next.js, Tailwind CSS, shadcn/ui.
+TypeScript, Go, Python, SQL, Node.js, Express, FastAPI, Django, PostgreSQL, Redis, MongoDB, OpenSearch, Neo4j, ChromaDB, LangGraph, LangChain, CrewAI, FAISS, Mem0, Temporal, Docker, Kubernetes, Linux, Terraform, AWS, Azure, GCP, OPA, OAuth 2.0, React, Next.js, Tailwind CSS, shadcn/ui.
 
 ## Links
 
@@ -30,4 +64,5 @@ TypeScript, Go, Python, SQL, Node.js, Express, FastAPI, Django, PostgreSQL, Redi
 - LinkedIn: https://www.linkedin.com/in/ryanmadhuwala
 - Email: rawx18.dev@gmail.com
 - Resume: https://ryanmadhuwala.tech/resume
-- Experience stories: https://ryanmadhuwala.tech/experience/caracal/founder
+- Projects: https://ryanmadhuwala.tech/projects
+- Sitemap: https://ryanmadhuwala.tech/sitemap.xml

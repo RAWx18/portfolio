@@ -1,10 +1,3 @@
-/**
- * Copyright (C) 2026 Garudex Labs.  All Rights Reserved.
- * Caracal, a product of Garudex Labs
- *
- * Scroll-triggered reveal wrapper used across the experience story pages.
- */
-
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";

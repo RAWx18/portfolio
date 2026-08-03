@@ -1,10 +1,3 @@
-/**
- * Copyright (C) 2026 Garudex Labs.  All Rights Reserved.
- * Caracal, a product of Garudex Labs
- *
- * Story page for a single role, with the narrative centred and its photographs in the margins.
- */
-
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -17,9 +10,21 @@ import { RightNavbar } from "@/components/RightNavbar";
 import { FooterBackground } from "@/components/FooterBackground";
 import { roles, findRole, type RoleRef } from "@/data/experiencesData";
 import { roleStories, findStory } from "@/data/experienceStories";
+import { projectsData } from "@/data/projectsData";
 import { StoryLane } from "@/components/story/StoryLane";
 import { Divider } from "@/components/story/StoryBlocks";
 import { Reveal } from "@/components/story/Reveal";
+import { JsonLd } from "@/components/JsonLd";
+import {
+  absolute,
+  breadcrumbs,
+  organizationId,
+  organizationNode,
+  parseDates,
+  personId,
+  websiteId,
+} from "@/lib/seo";
+import { siteUrl } from "@/lib/site";
 
 const dashDown = {
   maskImage:
@@ -51,22 +56,24 @@ export async function generateMetadata({
 
   const name = found.experience.short ?? found.experience.company;
   const title = `${found.position.role} · ${name}`;
+  const social = story.photos[0]?.src ?? "/cover_portfolio.png";
 
   return {
     title,
     description: story.lede,
     alternates: { canonical: `/experience/${org}/${role}` },
     openGraph: {
+      type: "profile",
       title: `${title} · Ryan Madhuwala`,
       description: story.lede,
       url: `/experience/${org}/${role}`,
-      images: [{ url: found.experience.src, alt: found.experience.company }],
+      images: [{ url: social, alt: `${story.headline} — ${found.experience.company}` }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${title} · Ryan Madhuwala`,
       description: story.lede,
-      images: [found.experience.src],
+      images: [social],
     },
   };
 }
@@ -93,8 +100,44 @@ export default async function RoleStoryPage({
   const previous = index > 0 ? roles[index - 1] : undefined;
   const next = index < roles.length - 1 ? roles[index + 1] : undefined;
 
+  const url = `${siteUrl}/experience/${org}/${role}`;
+  const { startDate, endDate } = parseDates(position.dates);
+  const relatedProjects = projectsData.filter((project) =>
+    (story.related ?? []).includes(project.slug),
+  );
+
+  const graph = [
+    breadcrumbs([
+      { name: "Ryan Madhuwala", path: "/" },
+      { name: `${position.role} · ${name}`, path: `/experience/${org}/${role}` },
+    ]),
+    organizationNode(experience),
+    {
+      "@type": "WebPage",
+      "@id": `${url}#webpage`,
+      url,
+      name: `${position.role} · ${name} · Ryan Madhuwala`,
+      headline: story.headline,
+      description: story.lede,
+      isPartOf: { "@id": websiteId },
+      about: { "@id": personId },
+      inLanguage: "en-US",
+      ...(startDate ? { temporalCoverage: `${startDate}/${endDate ?? ".."}` } : {}),
+      ...(story.photos[0] ? { primaryImageOfPage: absolute(story.photos[0].src) } : {}),
+      mentions: [
+        { "@id": organizationId(experience) },
+        ...relatedProjects.map((project) => ({
+          "@type": "SoftwareSourceCode",
+          name: project.title,
+          url: `${siteUrl}/projects/${project.slug}`,
+        })),
+      ],
+    },
+  ];
+
   return (
     <div className="min-h-screen w-full bg-white dark:bg-black relative overflow-x-hidden transition-colors duration-300">
+      <JsonLd graph={graph} />
       <RightNavbar />
 
       {/* Vertical Lines - Ultra-fine Micro Dots */}
@@ -133,18 +176,20 @@ export default async function RoleStoryPage({
       </div>
 
       {/* Cell 2: Header with Back Button + Title + Controls */}
-      <div className="absolute left-0 right-0 md:left-[30%] md:right-[30%] top-[22vh] h-[112px] flex items-center px-4 z-50">
+      <header className="absolute left-0 right-0 md:left-[30%] md:right-[30%] top-[22vh] h-[112px] flex items-center px-4 z-50">
         <div className="flex w-full items-center justify-between gap-3">
           <div className="flex min-w-0 items-center gap-5">
             <Link
               href="/#experience"
               className="group flex items-center justify-center w-8 h-8 shrink-0 rounded-md bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/50 dark:border-zinc-800/50 text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all hover:bg-zinc-200 dark:hover:bg-zinc-800"
+              aria-label="Back to all experience"
             >
               <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" />
             </Link>
             <div className="flex min-w-0 flex-col justify-center">
               <h1 className="truncate text-[20px] sm:text-[24px] font-bold text-zinc-800 dark:text-zinc-100 tracking-tight leading-none mb-0.5 [text-shadow:-1.5px_0_0_rgba(0,200,255,0.3),1.5px_0_0_rgba(255,80,0,0.3)] dark:[text-shadow:-1.5px_0_0_rgba(0,200,255,0.6),1.5px_0_0_rgba(255,80,0,0.6)]">
                 {name}
+                <span className="sr-only"> — {position.role}, Ryan Madhuwala</span>
               </h1>
               <p className="truncate text-[12px] text-zinc-500 dark:text-zinc-400 font-medium">
                 Experience/{position.role}
@@ -157,10 +202,10 @@ export default async function RoleStoryPage({
             <ThemeToggle className="dark:text-zinc-400 hover:dark:text-zinc-300" />
           </div>
         </div>
-      </div>
+      </header>
 
       {/* Content */}
-      <div className="relative z-10 pt-[calc(22vh+112px)] pb-16">
+      <main className="relative z-10 pt-[calc(22vh+112px)] pb-16">
         <StoryLane
           photos={story.photos}
           blocks={story.blocks}
@@ -204,7 +249,8 @@ export default async function RoleStoryPage({
 
               <div className="mt-4 flex flex-wrap items-center gap-2">
                 <span className="flex items-center gap-1.5 rounded-md border border-black/10 bg-zinc-50 px-2 py-1 text-[11px] font-medium text-zinc-600 dark:border-white/5 dark:bg-[#09090b] dark:text-zinc-300">
-                  <CalendarDays className="h-3 w-3" /> {position.dates}
+                  <CalendarDays className="h-3 w-3" />
+                  <time dateTime={startDate}>{position.dates}</time>
                 </span>
                 <span className="flex items-center gap-1.5 rounded-md border border-black/10 bg-zinc-50 px-2 py-1 text-[11px] font-medium text-zinc-600 dark:border-white/5 dark:bg-[#09090b] dark:text-zinc-300">
                   <MapPin className="h-3 w-3" /> {position.location}
@@ -219,13 +265,43 @@ export default async function RoleStoryPage({
           }
           footer={
             <>
+              {relatedProjects.length > 0 && (
+                <>
+                  <Divider />
+                  <Reveal>
+                    <h3 className="mb-2.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-zinc-400 dark:text-zinc-500">
+                      Related projects
+                    </h3>
+                    <div className="grid gap-2 sm:grid-cols-2">
+                      {relatedProjects.map((project) => (
+                        <Link
+                          key={project.slug}
+                          href={`/projects/${project.slug}`}
+                          className="group flex items-center justify-between gap-3 rounded-lg border border-black/5 bg-zinc-50/80 px-3 py-2.5 shadow-sm transition-all duration-300 hover:border-black/10 hover:shadow-md dark:border-white/5 dark:bg-[#09090b]/80 dark:hover:border-white/10"
+                        >
+                          <span className="min-w-0">
+                            <span className="block truncate text-[13px] font-medium text-zinc-800 dark:text-zinc-200">
+                              {project.title}
+                            </span>
+                            <span className="mt-0.5 block truncate text-[11px] text-zinc-500 dark:text-zinc-400">
+                              {project.description}
+                            </span>
+                          </span>
+                          <ArrowRight className="h-3.5 w-3.5 shrink-0 text-zinc-400 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:text-zinc-900 dark:group-hover:text-zinc-100" />
+                        </Link>
+                      ))}
+                    </div>
+                  </Reveal>
+                </>
+              )}
+
               {siblings.length > 0 && (
                 <>
                   <Divider />
                   <Reveal>
-                    <div className="mb-2.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-zinc-400 dark:text-zinc-500">
+                    <h3 className="mb-2.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-zinc-400 dark:text-zinc-500">
                       More at {name}
-                    </div>
+                    </h3>
                     <div className="grid gap-2 sm:grid-cols-2">
                       {siblings.map((sibling) => (
                         <Link
@@ -252,15 +328,15 @@ export default async function RoleStoryPage({
               <Divider />
 
               <Reveal>
-                <div className="grid gap-2 sm:grid-cols-2">
+                <nav aria-label="Other experience" className="grid gap-2 sm:grid-cols-2">
                   <NavCard target={previous} direction="previous" />
                   <NavCard target={next} direction="next" />
-                </div>
+                </nav>
               </Reveal>
             </>
           }
         />
-      </div>
+      </main>
     </div>
   );
 }

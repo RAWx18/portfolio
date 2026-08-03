@@ -1,10 +1,3 @@
-/**
- * Copyright (C) 2026 Garudex Labs.  All Rights Reserved.
- * Caracal, a product of Garudex Labs
- *
- * Organisations and the individual roles held at each, every role linking to its own story page.
- */
-
 export type ExperiencePosition = {
   slug: string;
   role: string;

@@ -1,10 +1,3 @@
-/**
- * Copyright (C) 2026 Garudex Labs.  All Rights Reserved.
- * Caracal, a product of Garudex Labs
- *
- * Three-column reading lane: the story holds the centre while photographs live in the side margins.
- */
-
 import type { CSSProperties, ReactNode } from "react";
 import type { StoryBlock, StoryPhoto } from "@/data/experienceStories";
 import { StoryBlocks } from "@/components/story/StoryBlocks";
@@ -54,7 +47,6 @@ export function StoryLane({
   return (
     <div className="relative grid grid-cols-1 md:grid-cols-[30%_40%_30%]">
       <Rail items={placed.filter((item) => item.side === "left")} side="left" />
-
       <div className="min-w-0 px-4">
         {header}
 
@@ -66,7 +58,9 @@ export function StoryLane({
           </div>
         )}
 
-        <StoryBlocks blocks={blocks} />
+        <article>
+          <StoryBlocks blocks={blocks} />
+        </article>
         {footer}
       </div>
 
@@ -81,7 +75,10 @@ function Rail({ items, side }: { items: Placed[]; side: "left" | "right" }) {
   }
 
   return (
-    <div className="pointer-events-none relative hidden md:block">
+    <aside
+      aria-label={`Photographs from this role (${side})`}
+      className="pointer-events-none relative hidden md:block"
+    >
       {items.map(({ photo, index, top }) => {
         const inset = `${insets[index % insets.length]}%`;
         const position: CSSProperties =
@@ -99,6 +96,6 @@ function Rail({ items, side }: { items: Placed[]; side: "left" | "right" }) {
           </div>
         );
       })}
-    </div>
+    </aside>
   );
 }

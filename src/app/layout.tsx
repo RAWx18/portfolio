@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { siteUrl } from "@/lib/site";
+import { affiliationNodes, roleListNode } from "@/lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -116,10 +117,16 @@ const jsonLd = {
         "https://github.com/RAWx18",
         "https://x.com/RAWx18_dev",
         "https://www.linkedin.com/in/ryanmadhuwala",
+        "https://www.caracal.run",
+        "https://github.com/LF-Decentralized-Trust-labs/gitmesh",
       ],
+      affiliation: affiliationNodes().map((node) => ({ "@id": node["@id"] })),
       knowsAbout: [
         "AI Infrastructure",
         "AI Agent Security",
+        "Authority delegation",
+        "Policy as Code",
+        "Retrieval-Augmented Generation",
         "Open Source",
         "TypeScript",
         "Go",
@@ -130,6 +137,8 @@ const jsonLd = {
         "OPA",
       ],
     },
+    ...affiliationNodes(),
+    roleListNode(),
     {
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
@@ -137,6 +146,16 @@ const jsonLd = {
       name: "Ryan Madhuwala",
       description,
       publisher: { "@id": `${siteUrl}/#person` },
+      inLanguage: "en-US",
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": `${siteUrl}/#profilepage`,
+      url: siteUrl,
+      name: "Ryan Madhuwala: AI Infrastructure Engineer",
+      description,
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      mainEntity: { "@id": `${siteUrl}/#person` },
       inLanguage: "en-US",
     },
   ],

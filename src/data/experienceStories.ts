@@ -1,10 +1,3 @@
-/**
- * Copyright (C) 2026 Garudex Labs.  All Rights Reserved.
- * Caracal, a product of Garudex Labs
- *
- * Per-role story content: a centred narrative plus the captured moments that surround it.
- */
-
 export type StoryPhoto = {
   src: string;
   alt: string;
@@ -35,6 +28,8 @@ export type RoleStory = {
   role: string;
   headline: string;
   lede: string;
+  /** Slugs from projectsData that this role produced or contributed to. */
+  related?: string[];
   photos: StoryPhoto[];
   blocks: StoryBlock[];
 };
@@ -45,6 +40,7 @@ export const roleStories: RoleStory[] = [
     role: "founder",
     headline: "Authority, not credentials, for AI agents",
     lede: "Agents are reaching production with long-lived API keys in their environment, broader access than any task needs, and no answer to the question auditors actually ask: which agent did this, under whose authority?",
+    related: ["caracal"],
     photos: [
       {
         src: "/experience/story/caracal/osf.jpg",
@@ -322,6 +318,7 @@ export const roleStories: RoleStory[] = [
     role: "lab-leader",
     headline: "One of the youngest lab leaders in Linux Foundation history",
     lede: "Technical direction and community leadership for a lab under LF Decentralized Trust — a 14-service intelligence platform, Caracal, production operations, and the maintainers and contributors around all of it.",
+    related: ["gitmesh", "caracal"],
     photos: [
       {
         src: "/experience/story/lfdt/lableader/kr.jpeg",
@@ -501,6 +498,7 @@ export const roleStories: RoleStory[] = [
     role: "lfx-mentor",
     headline: "Back as a mentor, leading the next cohort",
     lede: "A year after finishing the programme as a mentee, I returned as an LFX Mentor under LF Decentralized Trust — guiding two contributors through six months building Caracal, a security-first authority delegation platform for AI systems.",
+    related: ["caracal"],
     photos: [
       {
         src: "/experience/story/lfdt/mentor/lfdt_community.jpeg",
@@ -613,6 +611,7 @@ export const roleStories: RoleStory[] = [
     role: "oss-program",
     headline: "One of thirty projects Vercel chose to back",
     lede: "Caracal was selected for the Vercel Open Source Program, Spring 2026 — thirty open source projects worldwide, picked for their contribution to the ecosystem.",
+    related: ["caracal"],
     photos: [
       {
         src: "/experience/story/vercel/blog.png",
@@ -683,6 +682,7 @@ export const roleStories: RoleStory[] = [
     role: "secure-open-source-fund",
     headline: "Fifty projects a year. Caracal was one",
     lede: "The GitHub Secure Open Source Fund puts maintainers of critical open source infrastructure in a room with GitHub's security engineers for three weeks. The 2026 cohort was 72 maintainers, 50 projects, 22 countries.",
+    related: ["caracal"],
     photos: [
       {
         src: "/experience/story/github/gssof_4.jpeg",
@@ -808,6 +808,7 @@ export const roleStories: RoleStory[] = [
     role: "cohort-member",
     headline: "Where Caracal actually runs",
     lede: "Microsoft for Startups backed the work with over $100k in Azure and AI credits, and the technical guidance to spend them well. Caracal was deployed end to end on Azure and served to companies from there.",
+    related: ["caracal"],
     photos: [
       {
         src: "/experience/story/mfs/mfs.jpeg",
@@ -873,6 +874,7 @@ export const roleStories: RoleStory[] = [
     role: "canopy",
     headline: "Five weeks on the part engineering doesn't teach",
     lede: "Selected for Canopy Online, Founders, Inc.'s five-week accelerator — acceptance below 4% globally — alongside founders and builders working across software, hardware, AI and media.",
+    related: ["caracal"],
     photos: [
       {
         src: "/experience/story/finc/canopy.jpeg",
@@ -942,6 +944,7 @@ export const roleStories: RoleStory[] = [
     role: "creator",
     headline: "A side project that became a Linux Foundation lab",
     lede: "Developer feedback is scattered across GitHub, Reddit, Discord, Slack and forums, so maintainers cannot see what their users actually need. GitMesh pulls those signals into one model and ranks the work by real community demand.",
+    related: ["gitmesh"],
     photos: [
       {
         src: "/experience/story/gitmesh/best_pitch.jpeg",
