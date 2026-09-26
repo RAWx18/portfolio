@@ -180,7 +180,7 @@ export const ProjectCard = ({
                     </span>
                   )}
                   <AnimatePresence>
-                    {hoveredTech === uniqueId && (
+                    {hoveredTech === uniqueId && tooltipText && (
                       <motion.div
                         initial={{ opacity: 0, y: 5 }}
                         animate={{ opacity: 1, y: 0 }}

@@ -62,6 +62,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     .filter((story) => (story.related ?? []).includes(slug))
     .map((story) => findRole(story.org, story.role))
     .filter((item) => item !== undefined);
+  const projectStatus = project.status ?? "Live";
+  const isLive = projectStatus === "Live";
 
   const graph = [
     breadcrumbs([
@@ -237,10 +239,18 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </h2>
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              {isLive ? (
+                <>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </>
+              ) : (
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-zinc-400"></span>
+              )}
             </span>
-            <span className="text-[13px] font-medium text-emerald-600 dark:text-emerald-400">{project.status ?? "Live"}</span>
+            <span className={`text-[13px] font-medium ${isLive ? "text-emerald-600 dark:text-emerald-400" : "text-zinc-500 dark:text-zinc-400"}`}>
+              {projectStatus}
+            </span>
           </div>
         </div>
 
